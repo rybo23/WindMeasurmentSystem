@@ -27,6 +27,7 @@ Wind Measurement System using a custom PCB, anemometer, and data visualization u
 - SW3
   - Short press: Increase brightness (w/ wrap around)
   - Long press: Toggle serial output (CSV / Readable)
+
  
 #System Overview 
 The system reads the analog voltage of the anemometer and converts it to a wind speed using a calibrated voltage range and corresponding maximum wind speed.
