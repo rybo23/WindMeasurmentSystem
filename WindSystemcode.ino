@@ -1,23 +1,24 @@
 /*
-// TheBlowedPCB Project
-// Ryan B
-// Firmware, wiring, and system integration
-*This code displays animated USA and Guatemala Flags on a 5x6 LED matrix
-*SW1 toggles between the flags (short press) and resets the max gust value (long press), SW2 increases the animation speed (wrap around), 
-*SW3 adjusts the LED brightness (short press) and toggles the Serial Monitor data formatting (hold) between 'Readable' and 
-*'CSV' (for easy data export and analysis). 
-*The flag animation is made by sequentially turning off one column at a time to replicate the waving of a flag.
-*The animation speed is also dynamically adjusted using an anemometer (wind sensor).
-*The analog output voltage of the anemometer is used to scale the animation's update rate based on the wind speed.
-*This effectively makes the flag animation faster/slower for higher/lower wind speeds.
-*The system includes easy to adjust parameters for wind calibration and flag animation sensitivity,
-*allowing the user to fine tune the system for various wind conditions and environments. 
-*See the "ADJUSTMENTS" section of the code below.
-*The system includes multiple functionalities for recording wind measurements. Firstly, the instantaneous wind speed in mph and
-*anemometer voltages are printed to the OLED screen for easy viewing. Also printed to the OLED screen is the 
-*max gust wind speed, which records the highest observed wind speed in mph. The average wind speed in mph and m/s, and the average anemometer voltage
-*over a user set period of time (see "ADJUSTMENTS") is printed to the serial monitor. The user can toggle between 'Readable' and 'CSV' output modes
-*for enhanced readability or easy data export.
+Wind Measurement System with Visual Feedback using a Custom Made PCB and Anemometer
+Ryan B
+Firmware, Wiring, and System Integration
+
+This code displays animated USA and Guatemala Flags on a 5x6 LED matrix
+SW1 toggles between the flags (short press) and resets the max gust value (long press), SW2 increases the animation speed (wrap around), 
+SW3 adjusts the LED brightness (short press) and toggles the serial monitor data formatting (hold) between 'Readable' and 
+'CSV' (for easy data export and analysis). 
+The flag animation is made by sequentially turning off one column at a time to replicate the waving of a flag.
+The animation speed is also dynamically adjusted using an anemometer (wind sensor).
+The analog output voltage of the anemometer is used to scale the animation's update rate based on the wind speed.
+This effectively makes the flag animation faster/slower for higher/lower wind speeds.
+The system includes easy to adjust parameters for wind calibration and flag animation sensitivity,
+allowing the user to fine tune the system for various wind conditions and environments. 
+See the "ADJUSTMENTS" section of the code below.
+The system includes multiple functionalities for recording wind measurements. Firstly, the instantaneous wind speed in mph and
+anemometer voltage is printed to the OLED screen for easy viewing. Also printed to the OLED screen is the 
+max gust wind speed, which records the highest observed wind speed in mph. The average wind speed in mph and m/s, and the average anemometer voltage
+over a user set period of time (see "ADJUSTMENTS") is printed to the serial monitor. The user can toggle between 'Readable' and 'CSV' output modes
+for enhanced readability or easy data export.
 */
 
 #include <FastLED.h>
@@ -71,7 +72,7 @@ float windSum = 0;                         //Stores the sum of average voltages 
 float avgWind = 0;
 int windCount = 0;                         //Stores the number of wind sensor reads
 
-
+bool headerPrinted = false;                
 bool csvMode = true;                      //false = readable, true = CSV
 
 
@@ -165,13 +166,7 @@ void setup() {
   
   avgWindow = avgMinutes * MINUTE;                                //Averaging time in ms
 
-  Serial.begin(9600);
-   
-   while (!Serial) {                                              //Waits for USB serial to reconnect after reset
-    ;
-  }
-  delay(200);                                                     //Small buffer for stability 
-  Serial.println("Time_s,Avg_mph,Avg_mps,Voltage_V,MaxGust_mph"); //Prints Headers
+  Serial.begin(9600);                                                                                                                 
   display.begin(0x3C, true);                                      //Initialize OLED, clear buffer, set text formatting
   display.clearDisplay();
   display.setTextSize(1);
@@ -187,6 +182,11 @@ unsigned long totalSec = millis() / 1000;                      //Convert ms to S
 bool sw1State = digitalRead(SW1_PIN);
 bool sw2State = digitalRead(SW2_PIN);
 bool sw3State = digitalRead(SW3_PIN);                         
+
+if (!headerPrinted && Serial) {                                  //Print CSV header once when serial monitor connects (prevents missing header at startup)
+  Serial.println("Time_s,Avg_mph,Avg_mps,Voltage_V,MaxGust_mph");
+  headerPrinted = true;
+}
 
 // SW1 TOGGLE FLAGS (SHORT PRESS) MAX GUST RESET (LONG PRESS)
 if (!sw1Pressed && sw1State == LOW) {                          //Detects when the button is first pressed (HIGH to LOW edge (button pressed))
@@ -240,8 +240,6 @@ if (sw3Pressed && sw3State == HIGH) {                            //Detects butto
   }
   sw3Pressed = false;                                            //Reset
 }
-
-
 
 
 //WIND SENSOR READ
