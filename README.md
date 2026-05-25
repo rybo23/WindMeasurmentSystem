@@ -43,15 +43,19 @@ An external hardware RC lowpass filter and a digital exponential moving average 
 - Expanded envormental sensing
 
 #Example CSV Output
+
 <img width="858" height="306" alt="CSVOutput" src="https://github.com/user-attachments/assets/b8ff3eb5-46f7-4d06-b55f-4714aca2d0c8" />
 
 #Example 'Readable' Output
+
 <img width="920" height="177" alt="READABLEOutput" src="https://github.com/user-attachments/assets/dc1ce662-7db9-4af4-9f2e-3516f4b3da47" />
 
 #Wiring Diagram
+
 <img width="763" height="458" alt="WiringDiagaram" src="https://github.com/user-attachments/assets/dfc99192-da1a-4602-8dbc-27d8fabc0d97" />
 
 #System Image
+
 <img width="622" height="693" alt="SystemImage" src="https://github.com/user-attachments/assets/eba35a4f-4fde-4193-834c-260c23e8a380" />
 
 
