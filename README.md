@@ -30,6 +30,7 @@ Wind Measurement System using a custom PCB, anemometer, and data visualization u
  
 #System Overview 
 The system reads the analog voltage of the anemometer and converts it to a wind speed using a calibrated voltage range and corresponding maximum wind speed.
+
 An external hardware RC lowpass filter and a digital exponential moving average (EMA) filter are used to reduce noise and system jitter. This processed signal is used to:
 - Display instantaneous wind data on the OLED screen
 - Dynamically control the speed of the LED flag animation
