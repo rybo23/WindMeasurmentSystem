@@ -60,6 +60,7 @@ An external hardware RC lowpass filter and a digital exponential moving average 
 
 <img width="552" height="591" alt="SystemUpClose" src="https://github.com/user-attachments/assets/e1776af0-3d89-4645-ba4d-3122b4edfa20" />
 
+<img width="747" height="672" alt="OLEDdisplay" src="https://github.com/user-attachments/assets/306450c0-4b0f-4e03-aae8-db8510e7b68e" />
 
 
 
