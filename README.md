@@ -52,7 +52,7 @@ An external hardware RC lowpass filter and a digital exponential moving average 
 
 #Wiring Diagram
 
-<img width="763" height="458" alt="WiringDiagaram" src="https://github.com/user-attachments/assets/dfc99192-da1a-4602-8dbc-27d8fabc0d97" />
+<img width="887" height="547" alt="SystemWiring" src="https://github.com/user-attachments/assets/c8cf652f-42b0-4441-825d-f7827ab45630" />
 
 #System Images
 
