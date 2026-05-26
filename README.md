@@ -54,9 +54,11 @@ An external hardware RC lowpass filter and a digital exponential moving average 
 
 <img width="763" height="458" alt="WiringDiagaram" src="https://github.com/user-attachments/assets/dfc99192-da1a-4602-8dbc-27d8fabc0d97" />
 
-#System Image
+#System Images
 
-<img width="622" height="693" alt="SystemImage" src="https://github.com/user-attachments/assets/eba35a4f-4fde-4193-834c-260c23e8a380" />
+<img width="832" height="808" alt="FinalSystemImage" src="https://github.com/user-attachments/assets/609656ed-a529-4341-a1c3-c29f273642a1" />
+
+<img width="552" height="591" alt="SystemUpClose" src="https://github.com/user-attachments/assets/e1776af0-3d89-4645-ba4d-3122b4edfa20" />
 
 
 
