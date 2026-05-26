@@ -44,7 +44,7 @@ An external hardware RC lowpass filter and a digital exponential moving average 
 
 #Example CSV Output
 
-<img width="858" height="306" alt="CSVOutput" src="https://github.com/user-attachments/assets/b8ff3eb5-46f7-4d06-b55f-4714aca2d0c8" />
+<img width="407" height="135" alt="CSVOutputEx" src="https://github.com/user-attachments/assets/c928723d-5370-4d6b-99dd-b97a8033d1d7" />
 
 #Example 'Readable' Output
 
