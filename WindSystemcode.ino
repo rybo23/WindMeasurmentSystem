@@ -285,7 +285,7 @@ if (millis() - lastOLED > 100) {                                //Updates OLED e
 
   display.setTextSize(1);                                       
   display.setCursor(0,0);                
-  display.print("TheBlowedPCB");                                //Lighthearted project label from initial concept (manual airflow testing)
+  display.print("Wind System v1.0");                                //Lighthearted project label from initial concept (manual airflow testing)
  
   display.setCursor(0,20);                
   display.print("Speed: ");
