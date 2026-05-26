@@ -183,8 +183,8 @@ bool sw1State = digitalRead(SW1_PIN);
 bool sw2State = digitalRead(SW2_PIN);
 bool sw3State = digitalRead(SW3_PIN);                         
 
-if (!headerPrinted && Serial) {                                  //Print CSV header once when serial monitor connects (prevents missing header at startup)
-  Serial.println("Time_s,Avg_mph,Avg_mps,Voltage_V,MaxGust_mph");
+if (!headerPrinted && Serial) {                                  //Print CSV header once when Serial Monitor connects (prevents missing header at startup)
+  Serial.println("Time_s,Avg_mph,Avg_mps,Avg_V,MaxGust_mph");
   headerPrinted = true;
 }
 
@@ -210,7 +210,7 @@ if (sw1Pressed && sw1State == HIGH) {                          //Detects button 
   if (lastSW2State == HIGH && sw2State == LOW) {               //Detects HIGH to LOW edge (button pressed) 
 
     if (waveSpeed > 40) {                                      //40 is the delay in ms: Higher delay -> slower flag speed
-      waveSpeed -= 20;                                         //Button press makes delay shorter -> faster flag speed 
+      waveSpeed -= 40;                                         //Button press makes delay shorter -> faster flag speed 
     } else {
       waveSpeed = 200;                                         //If the delay is too short the delay is set 200ms for wrap around
     }
