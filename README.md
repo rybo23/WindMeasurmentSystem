@@ -48,6 +48,10 @@ System demo and overview: https://youtu.be/OmSgg90Bh14?si=VTESv_KzRwL9rZkg
 
 Anemometer Testing: https://youtube.com/shorts/ssbGXXnbcn4?si=7LpYPOe13QlDxpDv
 
+#Project Report Available on my LinkedIn
+
+https://www.linkedin.com/in/ryan-boylewpiece/
+
 #Example CSV Output
 
 <img width="407" height="135" alt="CSVOutputEx" src="https://github.com/user-attachments/assets/c928723d-5370-4d6b-99dd-b97a8033d1d7" />
